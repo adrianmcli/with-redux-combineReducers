@@ -6,7 +6,7 @@ import Page from '../components/Page'
 export default class Counter extends React.Component {
   static getInitialProps ({ req }) {
     const isServer = !!req
-    const store = initStore(reducer, null, isServer)
+    const store = initStore(reducer, { clock: null }, isServer)
     store.dispatch({ type: 'TICK', light: !isServer, ts: Date.now() })
     return { initialState: store.getState(), isServer }
   }
